@@ -6,6 +6,7 @@ public class Graph : MonoBehaviour {
 	public Transform pointPrefab;
 	[SerializeField, Range (Mathf.PI, 60 * Mathf.PI)] private float _PI = Mathf.PI;
 	[SerializeField, Range (35, 100)] private int resolution = 35;
+	[SerializeField] private bool Single = false;
 	Transform[] points;
 	public MathFunction _MathFunction;
 	public enum MathFunction {
@@ -30,19 +31,28 @@ public class Graph : MonoBehaviour {
 		}
 	}
 
+	float SineFunction (float x, float t) {
+		return Mathf.Sin (_PI * (x + t / _PI));
+	}
+
+	float MultiSineFunction (float x, float t) {
+		float y = Mathf.Sin (_PI * (x + t / _PI));
+		y += Mathf.Sin (2f * _PI * (x + t / _PI)) / 2f;
+		y += 2f / 3f;
+		return y;
+	}
+
 	void Update () {
+		float t = Time.time;
 		if (_MathFunction == MathFunction.Sin) {
 			for (int i = 0; i < points.Length; i++) {
 				Transform point = points[i];
 				Vector3 position = point.localPosition;
-				position.y = Mathf.Sin (_PI * (position.x + Time.time / _PI));
-				point.localPosition = position;
-			}
-		} else if (_MathFunction == MathFunction.Cos) {
-			for (int i = 0; i < points.Length; i++) {
-				Transform point = points[i];
-				Vector3 position = point.localPosition;
-				position.y = Mathf.Cos (_PI * (position.x + Time.time / _PI));
+				if (Single == true) {
+					position.y = SineFunction (position.x, t);
+				} else {
+					position.y = MultiSineFunction (position.x, t);
+				}
 				point.localPosition = position;
 			}
 		}
