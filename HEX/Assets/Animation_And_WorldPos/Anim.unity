@@ -237,7 +237,7 @@ MonoBehaviour:
     type: 2}
   _PI: 3.1415927
   resolution: 100
-  Single: 0
+  Switcher: 0
   _MathFunction: 0
 --- !u!4 &917274992
 Transform:
