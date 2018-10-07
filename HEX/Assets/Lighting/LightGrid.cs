@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightGrid : MonoBehaviour {
     [SerializeField] Light _light;
     private int _line, _columns = 2;
-    private float _spacing = 2;
+    private int _spacing = 2;
     [SerializeField] float _speed = 2;
 
     List<Light> _ListOfLight = new List<Light> ();
@@ -37,13 +37,13 @@ public class LightGrid : MonoBehaviour {
             var p = (float3) l.transform.localPosition;
             p.z = t;
 
-            var amp = math.saturate (noise.snoise (p / _speed) * 0.9f);
+            var amplitude = math.saturate (noise.snoise (p / _speed) * 0.9f);
 
-            var c_r = math.sin (amp * 7 + t * 4);
-            var c_g = math.sin (amp * 7 + t * 2);
-            var c_b = math.sin (amp * 8 + t * 3);
+            var red = math.sin (amplitude * 7 + t * 4);
+            var green = math.sin (amplitude * 7 + t * 2);
+            var blue = math.sin (amplitude * 8 + t * 3);
 
-            var col = (Color) ((Vector4) (new float4 (c_r, c_g, c_b, 1) / 2 + 0.5f));
+            var col = (Color) ((Vector4) (new float4 (red, green, blue, 1) / 2 + 0.5f));
             col = col.linear;
 
             l.color = col;
