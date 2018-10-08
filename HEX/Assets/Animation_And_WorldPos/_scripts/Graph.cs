@@ -12,14 +12,16 @@ public class Graph : MonoBehaviour {
 	static DelegateFunction[] _dFunctions = {
 		SineFunction,
 		Sin2DFunction,
-		MultiSineFunction
+		MultiSineFunction,
+		MultipleSin
 
 	};
 	public MathFunction _MathFunction;
 	public enum MathFunction {
 		Sine,
 		Sin2DFunction,
-		MultiSine
+		MultiSine,
+		MultipleSin
 	}
 	//Delegate Zone end
 
@@ -60,6 +62,15 @@ public class Graph : MonoBehaviour {
 		float y = Mathf.Sin (_PI * (x + t));
 		y += Mathf.Sin (_PI * (z + t));
 		y *= 0.5f;
+		return y;
+	}
+
+	static float MultipleSin (float x, float z, float t) {
+		//float _PI = Mathf.PingPong (Mathf.PI + Time.time, 55 * Mathf.PI);
+		float y = 2f * Mathf.Sin (_PI * (x + z + t * 0.5f));
+		y += Mathf.Sin (_PI * (x + t));
+		y += Mathf.Sin (2f * _PI * (z + 2f * t)) * 0.5f;
+		y *= 0.2f;
 		return y;
 	}
 
