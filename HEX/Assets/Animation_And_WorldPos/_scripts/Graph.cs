@@ -13,7 +13,8 @@ public class Graph : MonoBehaviour {
 		SineFunction,
 		Sin2DFunction,
 		MultiSineFunction,
-		MultipleSin
+		MultipleSin,
+		Pulsation
 
 	};
 	public MathFunction _MathFunction;
@@ -21,7 +22,8 @@ public class Graph : MonoBehaviour {
 		Sine,
 		Sin2DFunction,
 		MultiSine,
-		MultipleSin
+		MultipleSin,
+		Pulsation
 	}
 	//Delegate Zone end
 
@@ -71,6 +73,13 @@ public class Graph : MonoBehaviour {
 		y += Mathf.Sin (_PI * (x + t));
 		y += Mathf.Sin (2f * _PI * (z + 2f * t)) * 0.5f;
 		y *= 0.2f;
+		return y;
+	}
+	static float Pulsation (float x, float z, float t) {
+		float q = Mathf.Sqrt (x * x + z * z);
+		float y = Mathf.Sin (_PI * (5f * q - t));
+		y /= 1f + 10f * q;
+		//y *= 0.1f * (1f + 10f * q);
 		return y;
 	}
 
