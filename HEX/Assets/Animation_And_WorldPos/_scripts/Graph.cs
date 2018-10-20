@@ -15,7 +15,8 @@ public class Graph : MonoBehaviour {
 		MultiSineFunction,
 		MultipleSin,
 		Pulsation,
-		Cylinder
+		Cylinder,
+		Sphere
 
 	};
 	public MathFunction _MathFunction;
@@ -25,7 +26,8 @@ public class Graph : MonoBehaviour {
 		MultiSine,
 		MultipleSin,
 		Pulsation,
-		Cylinder
+		Cylinder,
+		Sphere
 	}
 	//Delegate Zone end
 
@@ -96,12 +98,23 @@ public class Graph : MonoBehaviour {
 
 	static Vector3 Cylinder (float u, float v, float t) {
 		Vector3 _vector;
-		float rad = 1f + Mathf.Sin (2f * _PI * v + t) * 0.2f;
-		_vector.x = rad * Mathf.Sin (_PI * u);
+		float radius = 1f + Mathf.Sin (2f * _PI * v + t) * 0.2f;
+		_vector.x = radius * Mathf.Sin (_PI * u);
 		_vector.y = v;
-		_vector.z = rad * Mathf.Cos (_PI * u);
+		_vector.z = radius * Mathf.Cos (_PI * u);
 		return _vector;
+	}
+	static Vector3 Sphere (float u, float v, float t) {
+		Vector3 _vector;
+		float radius = 0.8f + Mathf.Sin (_PI * (6f * u + t)) * 0.1f;
+		radius += Mathf.Sin (_PI * (4f * v + t)) * 0.1f;
+		float S = radius * Mathf.Cos (_PI * 0.5f * v);
 
+		_vector.x = S * Mathf.Sin (_PI * u);
+		_vector.y = radius * Mathf.Sin (_PI * 0.5f * v);
+		_vector.z = S * Mathf.Cos (_PI * u);
+
+		return _vector;
 	}
 
 	void Update () {
