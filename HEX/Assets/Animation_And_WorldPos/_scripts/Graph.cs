@@ -8,28 +8,7 @@ public class Graph : MonoBehaviour {
 	private Transform[] points;
 	const float _PI = Mathf.PI;
 
-	//Delegate Zone
-	static DelegateFunction[] _dFunctions = {
-		SineFunction,
-		Sin2DFunction,
-		MultiSineFunction,
-		MultipleSin,
-		Pulsation,
-		Cylinder,
-		Sphere
-
-	};
-	public MathFunction _MathFunction;
-	public enum MathFunction {
-		Sine,
-		Sin2DFunction,
-		MultiSine,
-		MultipleSin,
-		Pulsation,
-		Cylinder,
-		Sphere
-	}
-	//Delegate Zone end
+	public NamesForDelegate _function;
 
 	void Awake () {
 		float step = 2f / resolution;
@@ -42,6 +21,27 @@ public class Graph : MonoBehaviour {
 			points[i] = point;
 		}
 	}
+	void Update () {
+		float t = Time.time;
+		DelegateFunction f = dFunctions[(int) _function];
+		float step = 2f / resolution;
+		for (int i = 0, z = 0; z < resolution; z++) {
+			float v = (z + 0.5f) * step - 1f;
+			for (int x = 0; x < resolution; x++, i++) {
+				float u = (x + 0.5f) * step - 1f;
+				points[i].localPosition = f (u, v, t);
+			}
+		}
+	}
+	static DelegateFunction[] dFunctions = {
+		SineFunction,
+		MultiSineFunction,
+		Sin2DFunction,
+		MultipleSin,
+		Pulsation,
+		Cylinder,
+		Sphere
+	};
 
 	static Vector3 SineFunction (float x, float z, float t) {
 		//float _PI = Mathf.PingPong (Mathf.PI + Time.time, 55 * Mathf.PI);
@@ -104,6 +104,7 @@ public class Graph : MonoBehaviour {
 		_vector.z = radius * Mathf.Cos (_PI * u);
 		return _vector;
 	}
+
 	static Vector3 Sphere (float u, float v, float t) {
 		Vector3 _vector;
 		float radius = 0.8f + Mathf.Sin (_PI * (6f * u + t)) * 0.1f;
@@ -115,18 +116,5 @@ public class Graph : MonoBehaviour {
 		_vector.z = S * Mathf.Cos (_PI * u);
 
 		return _vector;
-	}
-
-	void Update () {
-		float t = Time.time;
-		DelegateFunction f = _dFunctions[(int) _MathFunction];
-		float step = 2f / resolution;
-		for (int i = 0, z = 0; z < resolution; z++) {
-			float v = (z + 0.5f) * step - 1f;
-			for (int x = 0; x < resolution; x++, i++) {
-				float u = (x + 0.5f) * step - 1f;
-				points[i].localPosition = f (u, v, t);
-			}
-		}
 	}
 }
