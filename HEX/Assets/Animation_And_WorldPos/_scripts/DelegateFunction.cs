@@ -1,2 +1,2 @@
 ﻿using UnityEngine;
-public delegate float DelegateFunction (float x, float z, float t);
+public delegate Vector3 DelegateFunction (float u, float i, float t);

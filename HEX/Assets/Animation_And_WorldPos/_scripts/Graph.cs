@@ -14,7 +14,8 @@ public class Graph : MonoBehaviour {
 		Sin2DFunction,
 		MultiSineFunction,
 		MultipleSin,
-		Pulsation
+		Pulsation,
+		Cylinder
 
 	};
 	public MathFunction _MathFunction;
@@ -23,74 +24,96 @@ public class Graph : MonoBehaviour {
 		Sin2DFunction,
 		MultiSine,
 		MultipleSin,
-		Pulsation
+		Pulsation,
+		Cylinder
 	}
 	//Delegate Zone end
 
 	void Awake () {
 		float step = 2f / resolution;
 		Vector3 scale = Vector3.one * step;
-		Vector3 position;
-		position.y = 0f;
-		position.z = 0f;
 		points = new Transform[resolution * resolution];
-		for (int i = 0, z = 0; i < points.Length; z++) {
-			position.z = (z + 0.5f) * step - 1f;
-			for (int x = 0; x < resolution; x++, i++) {
-				Transform point = Instantiate (pointPrefab);
-				position.x = (x + 0.5f) * step - 1f;
-				point.localPosition = position;
-				point.localScale = scale;
-				point.SetParent (transform, false);
-				points[i] = point;
-			}
+		for (int i = 0; i < points.Length; i++) {
+			Transform point = Instantiate (pointPrefab);
+			point.localScale = scale;
+			point.SetParent (transform, false);
+			points[i] = point;
 		}
 	}
-	static float SineFunction (float x, float z, float t) {
+
+	static Vector3 SineFunction (float x, float z, float t) {
 		//float _PI = Mathf.PingPong (Mathf.PI + Time.time, 55 * Mathf.PI);
-		return Mathf.Sin (_PI * (x + t / _PI));
+		Vector3 _vector;
+		_vector.x = x;
+		_vector.y = Mathf.Sin (_PI * (x + t));
+		_vector.z = z;
+		return _vector;
 	}
 
-	static float MultiSineFunction (float x, float z, float t) {
+	static Vector3 MultiSineFunction (float x, float z, float t) {
 		//float _PI = Mathf.PingPong (Mathf.PI + Time.time, 55 * Mathf.PI);
-		float y = Mathf.Sin (_PI * (x + t / _PI));
-		y += Mathf.Sin (2f * _PI * (x + t / _PI)) / 2f;
-		y *= 2f / 3f;
-		return y;
+		Vector3 _vector;
+		_vector.x = x;
+		_vector.y = Mathf.Sin (_PI * (x + t / _PI));
+		_vector.y += Mathf.Sin (2f * _PI * (x + t / _PI)) / 2f;
+		_vector.y *= 2f / 3f;
+		_vector.z = z;
+		return _vector;
 	}
 
-	static float Sin2DFunction (float x, float z, float t) {
+	static Vector3 Sin2DFunction (float x, float z, float t) {
 		//float _PI = Mathf.PingPong (Mathf.PI + Time.time, 55 * Mathf.PI);
-		float y = Mathf.Sin (_PI * (x + t));
-		y += Mathf.Sin (_PI * (z + t));
-		y *= 0.5f;
-		return y;
+		Vector3 _vector;
+		_vector.x = x;
+		_vector.y = Mathf.Sin (_PI * (x + t));
+		_vector.y += Mathf.Sin (_PI * (z + t));
+		_vector.y *= 0.5f;
+		_vector.z = z;
+		return _vector;
 	}
 
-	static float MultipleSin (float x, float z, float t) {
+	static Vector3 MultipleSin (float x, float z, float t) {
 		//float _PI = Mathf.PingPong (Mathf.PI + Time.time, 55 * Mathf.PI);
-		float y = 2f * Mathf.Sin (_PI * (x + z + t * 0.5f));
-		y += Mathf.Sin (_PI * (x + t));
-		y += Mathf.Sin (2f * _PI * (z + 2f * t)) * 0.5f;
-		y *= 0.2f;
-		return y;
+		Vector3 _vector;
+		_vector.x = x;
+		_vector.y = 2f * Mathf.Sin (_PI * (x + z + t * 0.5f));
+		_vector.y += Mathf.Sin (_PI * (x + t));
+		_vector.y += Mathf.Sin (2f * _PI * (z + 2f * t)) * 0.5f;
+		_vector.y *= 0.2f;
+		_vector.z = z;
+		return _vector;
 	}
-	static float Pulsation (float x, float z, float t) {
+	static Vector3 Pulsation (float x, float z, float t) {
+		Vector3 _vector;
 		float q = Mathf.Sqrt (x * x + z * z);
-		float y = Mathf.Sin (_PI * (5f * q - t));
-		y /= 1f + 10f * q;
+		_vector.x = x;
+		_vector.y = Mathf.Sin (_PI * (5f * q - t));
+		_vector.y /= 1f + 10f * q;
+		_vector.z = z;
 		//y *= 0.1f * (1f + 10f * q);
-		return y;
+		return _vector;
+	}
+
+	static Vector3 Cylinder (float u, float v, float t) {
+		Vector3 _vector;
+		float rad = 1f + Mathf.Sin (2f * _PI * v + t) * 0.2f;
+		_vector.x = rad * Mathf.Sin (_PI * u);
+		_vector.y = v;
+		_vector.z = rad * Mathf.Cos (_PI * u);
+		return _vector;
+
 	}
 
 	void Update () {
 		float t = Time.time;
 		DelegateFunction f = _dFunctions[(int) _MathFunction];
-		for (int i = 0; i < points.Length; i++) {
-			Transform point = points[i];
-			Vector3 position = point.localPosition;
-			position.y = f (position.x, position.z, t);
-			point.localPosition = position;
+		float step = 2f / resolution;
+		for (int i = 0, z = 0; z < resolution; z++) {
+			float v = (z + 0.5f) * step - 1f;
+			for (int x = 0; x < resolution; x++, i++) {
+				float u = (x + 0.5f) * step - 1f;
+				points[i].localPosition = f (u, v, t);
+			}
 		}
 	}
 }
