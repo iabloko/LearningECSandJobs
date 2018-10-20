@@ -4,7 +4,7 @@ using UnityEngine;
 public class Graph : MonoBehaviour {
 
 	public Transform pointPrefab;
-	[SerializeField, Range (35, 1000)] private int resolution = 35;
+	[SerializeField, Range (25, 1000)] private int resolution = 35;
 	private Transform[] points;
 	const float _PI = Mathf.PI;
 
@@ -40,7 +40,8 @@ public class Graph : MonoBehaviour {
 		MultipleSin,
 		Pulsation,
 		Cylinder,
-		Sphere
+		Sphere,
+		Lissaju
 	};
 
 	static Vector3 SineFunction (float x, float z, float t) {
@@ -114,6 +115,17 @@ public class Graph : MonoBehaviour {
 		_vector.x = S * Mathf.Sin (_PI * u);
 		_vector.y = radius * Mathf.Sin (_PI * 0.5f * v);
 		_vector.z = S * Mathf.Cos (_PI * u);
+
+		return _vector;
+	}
+	static Vector3 Lissaju (float u, float v, float t) {
+		Vector3 _vector;
+		float freq_a = 1f;
+		float freq_b = 2f;
+		_vector.x = 1f * Mathf.Sin (freq_a * v * t);
+		_vector.y = 1f * Mathf.Sin (freq_b * v * t);
+		_vector.z = 1f;
+		//Debug.Log(_vector);
 
 		return _vector;
 	}
