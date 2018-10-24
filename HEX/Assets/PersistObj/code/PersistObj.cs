@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Game : MonoBehaviour {
+public class PersistObj : MonoBehaviour {
 	[SerializeField] private List<Transform> listObjects;
 
 	public Transform prefab;

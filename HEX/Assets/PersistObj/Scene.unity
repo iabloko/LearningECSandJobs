@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751a150eed9dd4fed859e8940f91bbc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listObjects: []
   prefab: {fileID: 4735325891902116, guid: 35cbcfbe1b80f0247b0f59f801d27ec0, type: 2}
   _reference: {fileID: 735732635}
   createKey: 113
