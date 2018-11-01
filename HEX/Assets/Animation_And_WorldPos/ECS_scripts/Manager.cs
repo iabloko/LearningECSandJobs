@@ -17,6 +17,9 @@ namespace TestECS {
         void Mathematica (int amount) {
             NativeArray<Entity> entities = new NativeArray<Entity> (amount, Allocator.Temp);
             entitymanager.Instantiate (prefabs, entities);
+            for (int i = 0; i < amount; i++) {
+
+            }
         }
     }
 }
