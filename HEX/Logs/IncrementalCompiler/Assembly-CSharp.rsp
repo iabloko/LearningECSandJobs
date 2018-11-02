@@ -328,6 +328,5 @@
 -i:C:/Works/git/LiveWallpaperForAndroid/HEX/Assets/Animation_And_WorldPos/_scripts/Graph.cs
 -i:C:/Works/git/LiveWallpaperForAndroid/HEX/Assets/Animation_And_WorldPos/_scripts/NamesForDelegate.cs
 -i:C:/Works/git/LiveWallpaperForAndroid/HEX/Assets/Animation_And_WorldPos/ECS_scripts/Manager.cs
--i:C:/Works/git/LiveWallpaperForAndroid/HEX/Assets/Animation_And_WorldPos/ECS_scripts/Systems/MovementSystem.cs
 -i:C:/Works/git/LiveWallpaperForAndroid/HEX/Assets/PersistObj/code/PersistObj.cs
 -v:0

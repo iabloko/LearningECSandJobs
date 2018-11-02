@@ -99,7 +99,7 @@
 -r:C:/Works/git/LiveWallpaperForAndroid/HEX/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Pdb.dll
 -r:C:/Works/git/LiveWallpaperForAndroid/HEX/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Rocks.dll
 -r:C:/Works/git/LiveWallpaperForAndroid/HEX/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll
--r:C:/Works/git/LiveWallpaperForAndroid/HEX/Library/PackageCache/com.unity.render-pipelines.high-definition@4.0.1-preview/Editor/Core/ShaderGenerator/ICSharpCode.NRefactory.dll
+-r:C:/Works/git/LiveWallpaperForAndroid/HEX/Library/PackageCache/com.unity.render-pipelines.high-definition@4.1.0-preview/Editor/Core/ShaderGenerator/ICSharpCode.NRefactory.dll
 -r:"C:\Program Files\Unity\Hub\Editor\2018.3.0b8\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.3.0b8\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.3.0b8\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Core.dll"
