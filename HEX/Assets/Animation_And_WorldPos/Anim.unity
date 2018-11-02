@@ -300,7 +300,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917274990}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de8634110b9c4448fb0bd02ea5c06063, type: 3}
   m_Name: 
@@ -553,6 +553,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ECS_graph
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433727286032176202, guid: 12b89a0db3fdd6548b0de9997719a083,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12b89a0db3fdd6548b0de9997719a083, type: 3}
