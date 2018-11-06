@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &917274991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +557,22 @@ PrefabInstance:
     - target: {fileID: 3433727286032176202, guid: 12b89a0db3fdd6548b0de9997719a083,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3323446152219344120, guid: 12b89a0db3fdd6548b0de9997719a083,
+        type: 3}
+      propertyPath: m_SerializedData.value
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783290312702545081, guid: 12b89a0db3fdd6548b0de9997719a083,
+        type: 3}
+      propertyPath: m_SerializedData.mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 1783290312702545081, guid: 12b89a0db3fdd6548b0de9997719a083,
+        type: 3}
+      propertyPath: m_SerializedData.material
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c942d2761388415895e7420d1226bc1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12b89a0db3fdd6548b0de9997719a083, type: 3}

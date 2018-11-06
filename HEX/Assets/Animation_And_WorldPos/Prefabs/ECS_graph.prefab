@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3433727286032176203}
   - component: {fileID: 8181099602303229640}
   - component: {fileID: 4359154127529602645}
+  - component: {fileID: 3323446152219344120}
   - component: {fileID: 1783290312702545081}
   m_Layer: 0
   m_Name: ECS_graph
@@ -82,6 +83,20 @@ MonoBehaviour:
       x: 0
       y: 0
       z: 0
+--- !u!114 &3323446152219344120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433727286032176202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558b404f2df94f844a460be46db1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    value: 0
 --- !u!114 &1783290312702545081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,8 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    material: {fileID: 2100000, guid: 3c942d2761388415895e7420d1226bc1, type: 2}
+    mesh: {fileID: 0}
+    material: {fileID: 0}
     subMesh: 0
     castShadows: 0
     receiveShadows: 0
