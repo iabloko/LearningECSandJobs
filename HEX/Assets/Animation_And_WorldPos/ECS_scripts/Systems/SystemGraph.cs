@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Math {
     public class SystemGraph : JobComponentSystem {
-        
+
         [ComputeJobOptimization]
         struct GraphJob : IJobProcessComponentData<Position, Rotation, Count> {
 
@@ -15,7 +15,7 @@ namespace Math {
             public int variable_bot;
             public float deltaTime;
 
-            public void Execute (ref Position position, [ReadOnly] ref Rotation rotation, ref Count count) {
+            public void Execute (ref Position position, [ReadOnly] ref Rotation rotation, [ReadOnly] ref Count count) {
                 float3 value = position.Value;
                 value += Time.deltaTime * count.value * math.forward (rotation.Value);
                 if (value.z < variable_bot)
@@ -31,9 +31,7 @@ namespace Math {
                 deltaTime = Time.deltaTime
             };
 
-            JobHandle graphHandle = graphJob.Schedule (this, 64, inputDeps);
-
-            return graphHandle;
+            return graphJob.Schedule<GraphJob> (this, inputDeps);
         }
     }
 }
