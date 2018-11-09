@@ -45,14 +45,6 @@ namespace Samples.Common {
                                 Child = entities[i]
                         });
                     }
-                } else {
-                    GeneratePoints.RandomPointsOnCircle (center, spawner.radius, ref positions);
-                    for (int i = 0; i < spawner.count; i++) {
-                        var position = new Position {
-                            Value = positions[i]
-                        };
-                        EntityManager.SetComponentData (entities[i], position);
-                    }
                 }
 
                 entities.Dispose ();

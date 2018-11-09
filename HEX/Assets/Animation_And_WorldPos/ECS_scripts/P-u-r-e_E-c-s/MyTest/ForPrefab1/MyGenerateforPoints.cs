@@ -1,6 +1,5 @@
 ﻿using Unity.Collections;
 using Unity.Mathematics;
-using UnityEngine;
 
 namespace Samples.Common {
     public struct MyGenerateforPoints {
@@ -10,7 +9,6 @@ namespace Samples.Common {
             _vector.x = x;
             _vector.y = math.sin (_PI * x + t);
             _vector.z = z;
-            Debug.Log (_vector);
             return _vector;
         }
     }
