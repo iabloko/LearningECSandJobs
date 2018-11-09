@@ -1,5 +1,6 @@
 ﻿using System;
 using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Samples.Common {
@@ -9,6 +10,8 @@ namespace Samples.Common {
         public bool spawnLocal;
         public const float _PI = Mathf.PI;
         public int count;
+        [HideInInspector] public float step;
+        [HideInInspector] public float3 scale;
     }
 
     public class MySpawnerComponent : SharedComponentDataWrapper<SpawnSpheres> { }

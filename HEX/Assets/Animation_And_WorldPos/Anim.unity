@@ -326,7 +326,12 @@ MonoBehaviour:
     prefab: {fileID: 8928633260021062689, guid: d4ae9b8eaf2d09b429a46c4126119666,
       type: 3}
     spawnLocal: 0
-    count: 2
+    count: 50
+    step: 0
+    scale:
+      x: 0
+      y: 0
+      z: 0
 --- !u!114 &440638779
 MonoBehaviour:
   m_ObjectHideFlags: 0
