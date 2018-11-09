@@ -3,6 +3,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
+
 namespace Samples.Common {
     public class SpawnRandomCircleSystem : ComponentSystem {
 #pragma warning disable 649
@@ -15,7 +16,6 @@ namespace Samples.Common {
             public EntityArray Entity;
             public readonly int Length;
         }
-
         [Inject] Group m_Group;
 #pragma warning restore 649
 
