@@ -4,7 +4,7 @@ using UnityEngine;
 public class Graph : MonoBehaviour {
 
 	public Transform pointPrefab;
-	[SerializeField, Range (25, 1000)] private int resolution = 35;
+	[SerializeField, Range (25, 50000)] private int resolution = 35;
 	private Transform[] points;
 	const float _PI = Mathf.PI;
 
@@ -23,8 +23,10 @@ public class Graph : MonoBehaviour {
 	}
 	void Update () {
 		float t = Time.time;
+		Debug.Log (t);
 		DelegateFunction f = dFunctions[(int) _function];
 		float step = 2f / resolution;
+
 		for (int i = 0, z = 0; z < resolution; z++) {
 			float v = (z + 0.5f) * step - 1f;
 			for (int x = 0; x < resolution; x++, i++) {
