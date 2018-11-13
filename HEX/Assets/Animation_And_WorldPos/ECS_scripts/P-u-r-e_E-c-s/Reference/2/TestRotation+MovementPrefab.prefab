@@ -98,9 +98,9 @@ MonoBehaviour:
     Value:
       value:
         x: 0
-        y: 0
+        y: 0.5531869
         z: 0
-        w: 1
+        w: 0.8330572
 --- !u!114 &2237359076361010040
 MonoBehaviour:
   m_ObjectHideFlags: 0

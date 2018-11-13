@@ -4,7 +4,7 @@ using UnityEngine;
 public class Graph : MonoBehaviour {
 
 	public Transform pointPrefab;
-	[SerializeField, Range (25, 1000)] private int resolution = 35;
+	[SerializeField, Range (25, 50000)] private int resolution = 35;
 	private Transform[] points;
 	const float _PI = Mathf.PI;
 

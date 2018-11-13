@@ -2,15 +2,14 @@
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace Samples.Common {
     public class SpawnRandomCircleSystem : ComponentSystem {
 #pragma warning disable 649
         struct Group {
             [ReadOnly]
-
             public SharedComponentDataArray<SpawnRandomCircle> Spawner;
-
             public ComponentDataArray<Position> Position;
             public EntityArray Entity;
             public readonly int Length;
@@ -31,7 +30,7 @@ namespace Samples.Common {
                 var positions = new NativeArray<float3> (spawner.count, Allocator.Temp);
 
                 if (spawner.spawnLocal) {
-                    GeneratePoints.RandomPointsOnCircle (new float3 (), spawner.radius, ref positions);
+                    GeneratePoints.RandomPointsInSphere (new float3 (), spawner.radius, ref positions);
                     for (int i = 0; i < spawner.count; i++) {
                         var position = new Position {
                             Value = positions[i]
@@ -46,7 +45,7 @@ namespace Samples.Common {
                         });
                     }
                 } else {
-                    GeneratePoints.RandomPointsOnCircle (center, spawner.radius, ref positions);
+                    GeneratePoints.RandomPointsInSphere (center, spawner.radius, ref positions);
                     for (int i = 0; i < spawner.count; i++) {
                         var position = new Position {
                             Value = positions[i]
@@ -54,14 +53,9 @@ namespace Samples.Common {
                         EntityManager.SetComponentData (entities[i], position);
                     }
                 }
-
                 entities.Dispose ();
                 positions.Dispose ();
-
                 EntityManager.RemoveComponent<SpawnRandomCircle> (sourceEntity);
-
-                // Instantiate & AddComponent & RemoveComponent calls invalidate the injected groups,
-                // so before we get to the next spawner we have to reinject them  
                 UpdateInjectedComponentGroups ();
             }
         }
