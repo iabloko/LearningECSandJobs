@@ -9,7 +9,6 @@ namespace Samples.Common {
             var pointsFound = 0;
             var count = points.Length;
             while (pointsFound < count) {
-                //Debug.Log (pointsFound + "<" + count);
                 var p = new float3 {
                     x = UnityEngine.Random.Range (-radius, radius),
                     y = UnityEngine.Random.Range (-radius, radius),
@@ -30,6 +29,18 @@ namespace Samples.Common {
                     x = math.sin (angle) * radius,
                     y = 0,
                     z = math.cos (angle) * radius
+                };
+            }
+        }
+        static public void RandomPointsInCircle (float3 center, float radius, ref NativeArray<float3> points) {
+            var radiusSquared = radius * radius;
+            var count = points.Length;
+            for (int i = 0; i < count; i++) {
+                float angle = UnityEngine.Random.Range (0.0f, Mathf.PI * 2.0f);
+                points[i] = center + new float3 {
+                    x = math.sin (angle) * radius - (UnityEngine.Random.Range (-radius, radius)),
+                    y = 0,
+                    z = math.cos (angle) * radius - (UnityEngine.Random.Range (-radius, radius))
                 };
             }
         }

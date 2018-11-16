@@ -30,7 +30,7 @@ namespace Samples.Common {
                 var positions = new NativeArray<float3> (spawner.count, Allocator.Temp);
 
                 if (spawner.spawnLocal) {
-                    GeneratePoints.RandomPointsInSphere (new float3 (), spawner.radius, ref positions);
+                    GeneratePoints.RandomPointsInCircle (new float3 (), spawner.radius, ref positions);
                     for (int i = 0; i < spawner.count; i++) {
                         var position = new Position {
                             Value = positions[i]
@@ -45,7 +45,7 @@ namespace Samples.Common {
                         });
                     }
                 } else {
-                    GeneratePoints.RandomPointsInSphere (center, spawner.radius, ref positions);
+                    GeneratePoints.RandomPointsInCircle (center, spawner.radius, ref positions);
                     for (int i = 0; i < spawner.count; i++) {
                         var position = new Position {
                             Value = positions[i]

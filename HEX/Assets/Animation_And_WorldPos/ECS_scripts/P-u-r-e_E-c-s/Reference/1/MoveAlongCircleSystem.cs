@@ -22,6 +22,7 @@ namespace Samples.Common {
         [BurstCompile]
         struct MoveAlongCirclePosition : IJobParallelFor {
             public ComponentDataArray<Position> positions;
+
             public ComponentDataArray<MoveAlongCircle> moveAlongCircles;
             [ReadOnly]
             public ComponentDataArray<MoveSpeed> moveSpeeds;
@@ -33,7 +34,6 @@ namespace Samples.Common {
                 float x = moveAlongCircles[i].center.x + (math.cos (offsetT) * moveAlongCircles[i].radius);
                 float y = moveAlongCircles[i].center.y;
                 float z = moveAlongCircles[i].center.z + (math.sin (offsetT) * moveAlongCircles[i].radius);
-
                 moveAlongCircles[i] = new MoveAlongCircle {
                     t = t,
                     center = moveAlongCircles[i].center,
@@ -43,6 +43,7 @@ namespace Samples.Common {
                 positions[i] = new Position {
                     Value = new float3 (x, y, z)
                 };
+
             }
         }
         protected override JobHandle OnUpdate (JobHandle inputDeps) {
