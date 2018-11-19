@@ -17,5 +17,19 @@ namespace MLplanets {
                 };
             }
         }
+        static public void MLRandomSolarSystem (float3 CenterMass, int radius, ref NativeArray<float3> points) {
+            var diametr = 2 * radius;
+            var count = points.Length;
+            float angle = 270;
+            float s = math.sin (angle) * radius;
+            float ss = math.cos (angle) * radius;
+            for (int i = 0; i < count; i++) {
+                points[i] = CenterMass + new float3 {
+                    x = s,
+                    y = 0,
+                    z = ss
+                };
+            }
+        }
     }
 }

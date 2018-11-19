@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MLmoveComponent : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class MLmoveComponent : MonoBehaviour {
+    private int varible_1;
+    private float variable_2;
+
+    private void Start () {
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Update () {
+
     }
 }
