@@ -937,5 +937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestRotation+Movement
       objectReference: {fileID: 0}
+    - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b4fa0419ba59a4d8235c201039ba0d, type: 3}

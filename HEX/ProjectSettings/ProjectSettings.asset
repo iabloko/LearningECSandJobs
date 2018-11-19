@@ -623,10 +623,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 3
-  cloudProjectId: 
+  cloudProjectId: 53233f45-50ed-4fd9-91b1-c668a8bbbad8
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: HEX
+  organizationId: dxsunty
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
