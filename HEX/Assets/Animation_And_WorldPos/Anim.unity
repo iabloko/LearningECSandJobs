@@ -307,7 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointPrefab: {fileID: 4085835571985460, guid: 5be7b046f5fd4465bb77b9c434da9ad2,
     type: 3}
-  resolution: 50
+  resolution: 200
   _function: 0
 --- !u!4 &917274992
 Transform:
@@ -940,7 +940,12 @@ PrefabInstance:
     - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613703712305152168, guid: e4b4fa0419ba59a4d8235c201039ba0d,
+        type: 3}
+      propertyPath: m_SerializedData.count
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b4fa0419ba59a4d8235c201039ba0d, type: 3}
