@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &730841030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointPrefab: {fileID: 4280880864000713308, guid: 5731f986b1e69ac4796cf7eab6a3c1a3,
     type: 3}
-  resolution: 19
+  resolution: 50
 --- !u!4 &730841031
 Transform:
   m_ObjectHideFlags: 0

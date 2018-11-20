@@ -28,12 +28,15 @@ namespace MLplanets {
 
                 var positions = new NativeArray<float3> (spawner.count, Allocator.Temp);
 
-                MLgeneratePoints.MLrandomGenerate (new float3 (), ref positions);
+                //MLgeneratePoints.MLrandomGenerate (new float3 (), ref positions);
+
+                MLgeneratePoints.MLTryToSin (new float3 (), ref positions);
 
                 for (int i = 0; i < spawner.count; i++) {
                     var position = new Position {
                         Value = positions[i]
                     };
+                    
                     EntityManager.SetComponentData (entities[i], position);
 
                     var attach = EntityManager.CreateEntity ();

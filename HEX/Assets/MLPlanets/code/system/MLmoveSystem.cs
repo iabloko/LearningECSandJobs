@@ -11,7 +11,6 @@ namespace MLplanets {
     public class MLmoveSystem : JobComponentSystem {
         private List<MLspawns> m_MLspawns = new List<MLspawns> ();
 
-
         [BurstCompile]
         struct MLmove : IJobProcessComponentData<Position, MLmoveSpeed> {
             public float time;
