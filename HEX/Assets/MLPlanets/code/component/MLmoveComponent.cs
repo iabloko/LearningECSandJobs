@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
+using Unity.Entities;
+using Unity.Mathematics;
 
-public class MLmoveComponent : MonoBehaviour {
-    private int varible_1;
-    private float variable_2;
-
-    private void Start () {
-
+namespace MLplanets {
+    [Serializable]
+    public struct MLmove : IComponentData {
+        [NonSerialized] public float t;
+        public float speed;
+        public float3 height;
     }
 
-    private void Update () {
-
-    }
+    [UnityEngine.DisallowMultipleComponent]
+    public class MLmoveComponent : ComponentDataWrapper<MLmove> { }
 }

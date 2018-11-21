@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 749466167960420717}
   - component: {fileID: 6046861416109071584}
   - component: {fileID: 2807861291532866669}
-  - component: {fileID: 5273319435077163151}
-  - component: {fileID: 2976399478690474113}
+  - component: {fileID: 6484627529604301143}
   m_Layer: 0
   m_Name: MLgameObjects
   m_TagString: Untagged
@@ -82,7 +81,7 @@ MonoBehaviour:
       x: 0
       y: 0
       z: 0
---- !u!114 &5273319435077163151
+--- !u!114 &6484627529604301143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,27 +90,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7714974736761671859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 345a91954f2ba4779ae83b4fcf75bef6, type: 3}
+  m_Script: {fileID: 11500000, guid: 136be29e77400054f8b69ae118c41a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value:
-      value:
-        x: 0
-        y: 0
-        z: 0
-        w: 1
---- !u!114 &2976399478690474113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7714974736761671859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c4ade830ec69d74289121aac858b3de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    MoveSpeed: 50
+    speed: 5
+    height:
+      x: 0
+      y: 0.5
+      z: 0

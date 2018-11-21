@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Unity.Burst;
-using Unity.Collections;
+﻿using Unity.Burst;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
@@ -9,63 +7,46 @@ using UnityEngine;
 
 namespace MLplanets {
     public class MLmoveSystem : JobComponentSystem {
-        private List<MLspawns> m_MLspawns = new List<MLspawns> ();
+#pragma warning disable 649
+        struct MLmoveGroup {
+            public ComponentDataArray<Position> positions;
+            public ComponentDataArray<MLmove> MLmove;
+            public readonly int Length;
+        }
+
+        [Inject] private MLmoveGroup m_MLmoveGroup;
+#pragma warning restore 649    
 
         [BurstCompile]
-        struct MLmove : IJobProcessComponentData<Position, MLmoveSpeed> {
-            public float time;
-
-            public void Execute (ref Position position, [ReadOnly] ref MLmoveSpeed speed) {
-
-            }
-        }
-        protected override JobHandle OnUpdate (JobHandle inputDeps) {
-
-            var job = new MLmove () { time = Time.time };
-            return job.Schedule (this, inputDeps);
-        }
-    }
-}
-
-/* 
-namespace MLplanets {
-    public class MLmoveSystem : JobComponentSystem {
-#pragma warning disable 649
-        public struct MLmove {
-            [ReadOnly] public ComponentDataArray<MLmoveSpeed> moveSpeed;
-            public ComponentDataArray<Position> position;
-            public readonly int Lenght;
-        }
-
-        [Inject] MLmove m_MLmove;
-#pragma warning disable 649
-        [BurstCompile]
-        private struct MLmoveposition : IJobParallelFor {
-            [ReadOnly] public ComponentDataArray<MLmoveSpeed> moveSpeed;
-            public ComponentDataArray<Position> position;
+        struct BouncePosition : IJobParallelFor {
+            public ComponentDataArray<Position> positions;
+            public ComponentDataArray<MLmove> MLmove;
+            public float dt;
 
             public void Execute (int i) {
-                float time = Time.time;
-                float angle = math.sin (Mathf.PI * time);
-                float x = math.cos (angle);
-                float y = x;
-                float z = x;
+                float t = MLmove[i].t + i;
+                float st = math.sin (t);
+                float3 prevPosition = positions[i].Value;
+                MLmove prevMLmove = MLmove[i];
 
-                moveSpeed[i] = new MLmoveSpeed {
-                    MoveSpeed = moveSpeed[i].MoveSpeed
+                positions[i] = new Position {
+                    Value = prevPosition + new float3 (st * prevMLmove.height.x, st * prevMLmove.height.y, st * prevMLmove.height.z)
                 };
 
-                position[i] = new Position {
-                    Value = new float3 (x, y, z)
+                MLmove[i] = new MLmove {
+                    t = prevMLmove.t + (dt * prevMLmove.speed),
+                    height = prevMLmove.height,
+                    speed = prevMLmove.speed
                 };
             }
         }
+
         protected override JobHandle OnUpdate (JobHandle inputDeps) {
-            var MLmovepositionJob = new MLmoveposition ();
-            MLmovepositionJob.position = m_MLmove.position;
-            MLmovepositionJob.moveSpeed = m_MLmove.moveSpeed;
-            return MLmovepositionJob.Schedule (m_MLmove.Lenght, 64, inputDeps);
+            var bouncePositionJob = new BouncePosition ();
+            bouncePositionJob.positions = m_MLmoveGroup.positions;
+            bouncePositionJob.MLmove = m_MLmoveGroup.MLmove;
+            bouncePositionJob.dt = Time.deltaTime;
+            return bouncePositionJob.Schedule (m_MLmoveGroup.Length, 64, inputDeps);
         }
     }
 }
-*/
