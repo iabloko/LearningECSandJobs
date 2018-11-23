@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    speed: 5
+    speed: 2.5
     height:
-      x: 0
+      x: 0.1
       y: 0.5
-      z: 0
+      z: 0.1

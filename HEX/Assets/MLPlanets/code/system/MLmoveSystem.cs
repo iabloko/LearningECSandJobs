@@ -18,23 +18,25 @@ namespace MLplanets {
 #pragma warning restore 649    
 
         [BurstCompile]
-        struct BouncePosition : IJobParallelFor {
+        struct MLmovePosition : IJobParallelFor {
             public ComponentDataArray<Position> positions;
             public ComponentDataArray<MLmove> MLmove;
-            public float dt;
+            public float deltaTime;
+            private float dt;
 
             public void Execute (int i) {
-                float t = MLmove[i].t + i;
-                float st = math.sin (t);
                 float3 prevPosition = positions[i].Value;
                 MLmove prevMLmove = MLmove[i];
 
+                float time = MLmove[i].t;
+                float sin = math.sin (time + i);
+
                 positions[i] = new Position {
-                    Value = prevPosition + new float3 (st * prevMLmove.height.x, st * prevMLmove.height.y, st * prevMLmove.height.z)
+                    Value = prevPosition + new float3 (sin * prevMLmove.height.x, sin * prevMLmove.height.y, sin * prevMLmove.height.z)
                 };
 
                 MLmove[i] = new MLmove {
-                    t = prevMLmove.t + (dt * prevMLmove.speed),
+                    t = prevMLmove.t + (deltaTime * prevMLmove.speed),
                     height = prevMLmove.height,
                     speed = prevMLmove.speed
                 };
@@ -42,10 +44,10 @@ namespace MLplanets {
         }
 
         protected override JobHandle OnUpdate (JobHandle inputDeps) {
-            var bouncePositionJob = new BouncePosition ();
+            var bouncePositionJob = new MLmovePosition ();
             bouncePositionJob.positions = m_MLmoveGroup.positions;
             bouncePositionJob.MLmove = m_MLmoveGroup.MLmove;
-            bouncePositionJob.dt = Time.deltaTime;
+            bouncePositionJob.deltaTime = Time.deltaTime;
             return bouncePositionJob.Schedule (m_MLmoveGroup.Length, 64, inputDeps);
         }
     }
