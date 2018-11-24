@@ -21,10 +21,10 @@ namespace MLplanets {
         }
         static public void MLTryToSin (float3 center, ref NativeArray<float3> points) {
             var count = points.Length;
-            float step = 1;
+            var scale = new float3 (1, 1, 1);
             for (int i = 0; i < count; i++) {
-                points[i] = new float3 {
-                    x = (i + 0.5f) * step - 1f,
+                points[i] = center + new float3 {
+                    x = (i + 0.5f) - 1f,
                     y = 0f,
                     z = 0f
                 };

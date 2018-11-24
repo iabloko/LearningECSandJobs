@@ -17,7 +17,6 @@ public class SinExperiment : MonoBehaviour {
 		position.z = 0f;
 		points = new Transform[resolution];
 		for (int i = 0; i < points.Length; i++) {
-			Debug.Log ("Test");
 			Transform point = Instantiate (pointPrefab);
 			position.x = (i + 0.5f) * step - 1f;
 			point.localPosition = position;

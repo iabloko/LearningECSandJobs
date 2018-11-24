@@ -317,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917274990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.81, y: 0, z: 1.14}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -393,7 +393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975631314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.702475, y: -2.983678, z: -17.48817}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -476,7 +476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991118076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1247655, y: -3.2124028, z: -11.268092}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 1199127926}
   - component: {fileID: 1199127925}
   m_Layer: 0
-  m_Name: MoveSphere
+  m_Name: MoveSphere(CanUseInML)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -880,17 +880,17 @@ PrefabInstance:
     - target: {fileID: 6613703712305152170, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.699768
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6613703712305152170, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.9855638
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6613703712305152170, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.507086
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6613703712305152170, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
@@ -940,7 +940,7 @@ PrefabInstance:
     - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6613703712305152168, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
