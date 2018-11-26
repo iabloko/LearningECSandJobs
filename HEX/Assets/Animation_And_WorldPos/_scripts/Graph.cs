@@ -25,7 +25,7 @@ public class Graph : MonoBehaviour {
 		float t = Time.time;
 		DelegateFunction f = dFunctions[(int) _function];
 		float step = 2f / resolution;
-
+		Debug.Log (step);
 		for (int i = 0, z = 0; z < resolution; z++) {
 			float v = (z + 0.5f) * step - 1f;
 			for (int x = 0; x < resolution; x++, i++) {
@@ -48,6 +48,7 @@ public class Graph : MonoBehaviour {
 	static Vector3 SineFunction (float x, float z, float t) {
 		//float _PI = Mathf.PingPong (Mathf.PI + Time.time, 55 * Mathf.PI);
 		Vector3 _vector;
+		Debug.Log ("x= " + x + "z= " + z);
 		_vector.x = x;
 		_vector.y = Mathf.Sin (_PI * (x + t));
 		_vector.z = z;

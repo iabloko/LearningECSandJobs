@@ -22,17 +22,16 @@ namespace MLplanets {
             public ComponentDataArray<Position> positions;
             public ComponentDataArray<MLmove> MLmove;
             public float deltaTime;
-            private float dt;
 
             public void Execute (int i) {
                 float3 prevPosition = positions[i].Value;
                 MLmove prevMLmove = MLmove[i];
 
                 float time = MLmove[i].t;
-                float sin = math.sin (time + i);
+                float sin = math.sin (Mathf.PI * (((i + 0.5f) * 0.08f - 1f) + time));
 
                 positions[i] = new Position {
-                    Value = prevPosition + new float3 (sin * prevMLmove.height.x, sin * prevMLmove.height.y, sin * prevMLmove.height.z)
+                    Value = prevPosition + new float3 (((i + 0.5f) * 0.08f - 1f), sin, 0f)
                 };
 
                 MLmove[i] = new MLmove {

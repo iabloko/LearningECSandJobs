@@ -286,13 +286,14 @@ GameObject:
   m_Component:
   - component: {fileID: 917274992}
   - component: {fileID: 917274991}
+  - component: {fileID: 917274993}
   m_Layer: 0
   m_Name: Graph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &917274991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,14 +301,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917274990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de8634110b9c4448fb0bd02ea5c06063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pointPrefab: {fileID: 4085835571985460, guid: 5be7b046f5fd4465bb77b9c434da9ad2,
     type: 3}
-  resolution: 200
+  resolution: 25
   _function: 0
 --- !u!4 &917274992
 Transform:
@@ -323,6 +324,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917274993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917274990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e250b777c63f91447a5dcb80ecc2ab7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointPrefab: {fileID: 4085835571985460, guid: 5be7b046f5fd4465bb77b9c434da9ad2,
+    type: 3}
+  resolution: 10
 --- !u!1 &975631314
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6613703712305152168, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
