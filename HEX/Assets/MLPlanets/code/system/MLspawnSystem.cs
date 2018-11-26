@@ -1,9 +1,9 @@
 ﻿using Unity.Collections;
 using Unity.Entities;
+using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
-using Unity.Jobs;
 
 namespace MLplanets {
     public class MLspawnSystem : ComponentSystem {
@@ -37,7 +37,7 @@ namespace MLplanets {
                     var position = new Position {
                         Value = positions[i]
                     };
-                    
+
                     EntityManager.SetComponentData (entities[i], position);
 
                     var attach = EntityManager.CreateEntity ();

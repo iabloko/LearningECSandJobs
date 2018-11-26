@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 749466167960420717}
   - component: {fileID: 6046861416109071584}
   - component: {fileID: 2807861291532866669}
-  - component: {fileID: 6484627529604301143}
+  - component: {fileID: 6763839207697622829}
   m_Layer: 0
   m_Name: MLgameObjects
   m_TagString: Untagged
@@ -79,9 +79,9 @@ MonoBehaviour:
   m_SerializedData:
     Value:
       x: 0
-      y: 0
+      y: -5.703691
       z: 0
---- !u!114 &6484627529604301143
+--- !u!114 &6763839207697622829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    speed: 1
+    speed: 0.5
     height:
-      x: 0
-      y: 0.1
+      x: 0.05
+      y: 0.05
       z: 0
