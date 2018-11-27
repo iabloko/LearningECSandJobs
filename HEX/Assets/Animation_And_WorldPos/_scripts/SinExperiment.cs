@@ -31,7 +31,7 @@ public class SinExperiment : MonoBehaviour {
 			Transform point = points[i];
 			Vector3 position = point.localPosition;
 			position.y = Mathf.Sin (Mathf.PI * (position.x + Time.time));
-			//point.localPosition = position;
+			point.localPosition = position;
 		}
 	}
 }

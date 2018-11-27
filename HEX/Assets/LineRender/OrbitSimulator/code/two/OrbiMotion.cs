@@ -10,10 +10,8 @@ namespace Orbits {
         public Material trailMat;
 
         [Range (0, 1f)] public float orbitProgress = 0f;
+        public float orbitPeriod = 0f;
         public bool orbitActive = true;
-        [Range (0.01f, 100f)] public float orbitPeriod;
-        //rotate around it`s axis
-        [Range (0, 25)] public int planetSpeedRotation;
 
         void Start () {
             if (orbitingObject == null) {
@@ -26,8 +24,8 @@ namespace Orbits {
         }
         private void TrailSettings () {
             TrailRenderer tr = trailObject.AddComponent<TrailRenderer> ();
-            tr.time = 100;
-            tr.startWidth = 0.005f;
+            tr.time = 2 * orbitPeriod;
+            tr.startWidth = 0.55f;
             tr.endWidth = 0;
             tr.material = trailMat;
             tr.startColor = new Color (1, 1, 0, 0.1f);
@@ -36,10 +34,8 @@ namespace Orbits {
 
         private void SetOrbitionPositions () {
             Vector2 orbitPos = orbitpath.Evalute (orbitProgress);
-            orbitingObject.localPosition = new Vector3 (orbitPos.x, orbitPos.y, orbitPos.y);
-            trailObject.transform.Rotate (Vector3.up * planetSpeedRotation);
+            orbitingObject.localPosition = new Vector3 (orbitPos.x, 0, orbitPos.y);
         }
-        //random position
         private void RandomOrbitPosotion () {
             orbitProgress = UnityEngine.Random.Range (0f, 1f);
         }
@@ -49,12 +45,13 @@ namespace Orbits {
             }
         }
         IEnumerator AnimateOrbit () {
-            float speed = 1 / orbitPeriod;
             if (orbitPeriod < 0.1f) {
                 orbitPeriod = 0.1f;
             }
+
+            float orbitSpeed = 1f / orbitPeriod;
             while (orbitActive) {
-                orbitProgress += Time.deltaTime * speed;
+                orbitProgress += Time.deltaTime * orbitSpeed;
                 orbitProgress %= 1f;
                 SetOrbitionPositions ();
                 yield return null;
