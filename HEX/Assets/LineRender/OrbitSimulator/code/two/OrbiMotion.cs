@@ -20,7 +20,7 @@ namespace Orbits {
             }
             SetOrbitionPositions ();
             StartCoroutine (AnimateOrbit ());
-            TrailSettings ();
+            //TrailSettings ();
         }
         private void TrailSettings () {
             TrailRenderer tr = trailObject.AddComponent<TrailRenderer> ();
