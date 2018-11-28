@@ -5,9 +5,9 @@ using UnityEngine;
 namespace Orbits {
     [ExecuteInEditMode]
     public class OrbitLineRenderer : MonoBehaviour {
-        [Range (3, 64)] public int points;
+        [Range (3, 256)] public int points;
         public LineRenderer LineRenderer;
-        [Range (1, 100)] public float radius = 1;
+        [Range (1, 6)] public float radius = 1;
 
         private LinkedList<DynamicVertex> vertices;
 
@@ -23,22 +23,20 @@ namespace Orbits {
             }
         }
         void Awake () {
-            LineRenderer.widthMultiplier = 0.1f;
+            LineRenderer.widthMultiplier = 0.002f;
             vertices = new LinkedList<DynamicVertex> ();
             vertices.AddLast (new DynamicVertex (Vector3.zero, Vector3.zero, 1));
             vertices.AddLast (new DynamicVertex (Vector3.zero, Vector3.zero, 1));
             vertices.AddLast (new DynamicVertex (Vector3.zero, Vector3.zero, 1));
+            RenderOrbit ();
         }
 
-        void Update () {
+        private void RenderOrbit () {
             UpdateVertexList ();
-            foreach (var vertex in vertices) {
-                vertex.position = Vector3.Lerp (vertex.position, vertex.target, 3 * Time.deltaTime);
-            }
             var renderList = new Vector3[vertices.Count + 2];
             int n = 0;
             foreach (var vert in vertices) {
-                renderList[n++] = vert.position;
+                renderList[n++] = vert.target;
             }
             renderList[renderList.Length - 2] = renderList[0];
             renderList[renderList.Length - 1] = renderList[1];
@@ -52,7 +50,6 @@ namespace Orbits {
             foreach (var point in vertices) {
                 float x = Mathf.Cos ((i / (float) points) * 2 * Mathf.PI);
                 float z = Mathf.Sin ((i / (float) points) * 2 * Mathf.PI);
-                //Vector2 pos = orbitpath.Evalute (points);
                 point.target = new Vector3 (x, 0, z) * radius;
                 i++;
             }
@@ -60,7 +57,6 @@ namespace Orbits {
             for (i = count; i < points; ++i) {
                 float x = Mathf.Cos ((i / (float) points) * 2 * Mathf.PI);
                 float z = Mathf.Sin ((i / (float) points) * 2 * Mathf.PI);
-                //Vector2 pos = orbitpath.Evalute (points);
                 vertices.AddLast (new DynamicVertex (vertices.First.Value.position, new Vector3 (x, 0, z) * radius, vertices.First.Value.speed));
             }
             while (vertices.Count > points) {
