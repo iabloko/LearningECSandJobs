@@ -23,7 +23,7 @@ namespace Orbits {
             }
         }
         void Awake () {
-            LineRenderer.widthMultiplier = 0.002f;
+            LineRenderer.widthMultiplier = 0.02f;
             vertices = new LinkedList<DynamicVertex> ();
             vertices.AddLast (new DynamicVertex (Vector3.zero, Vector3.zero, 1));
             vertices.AddLast (new DynamicVertex (Vector3.zero, Vector3.zero, 1));
