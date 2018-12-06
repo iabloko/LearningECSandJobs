@@ -22,7 +22,7 @@ public class Graph : MonoBehaviour {
 		}
 	}
 	void Update () {
-		float t = Time.time;
+		float t = Time.deltaTime;
 		DelegateFunction f = dFunctions[(int) _function];
 		float step = 2f / resolution;
 		Debug.Log (step);
