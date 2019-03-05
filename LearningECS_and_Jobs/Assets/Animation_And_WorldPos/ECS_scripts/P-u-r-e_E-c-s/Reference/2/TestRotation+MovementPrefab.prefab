@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2256370928011453100}
   - component: {fileID: 411678556870065178}
   - component: {fileID: 4703738798849847874}
-  - component: {fileID: 3186006104089726043}
   - component: {fileID: 2237359076361010040}
   m_Layer: 0
   m_Name: TestRotation+MovementPrefab
@@ -82,25 +81,6 @@ MonoBehaviour:
       x: 0
       y: 0
       z: 0
---- !u!114 &3186006104089726043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7562772963326935611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 345a91954f2ba4779ae83b4fcf75bef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    Value:
-      value:
-        x: 0
-        y: 0.5531869
-        z: 0
-        w: 0.8330572
 --- !u!114 &2237359076361010040
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -206,13 +206,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272854529}
-  m_LocalRotation: {x: 0.14302613, y: -0, z: -0, w: 0.9897189}
-  m_LocalPosition: {x: 16.8, y: 20.2, z: -105.7}
+  m_LocalRotation: {x: 0.14188741, y: 0.124644026, z: -0.01801255, w: 0.98183876}
+  m_LocalPosition: {x: -9, y: 13.76, z: -48.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 16.446001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.446001, y: 14.47, z: 0}
 --- !u!114 &272854535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &917274991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +893,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
+        type: 3}
+      propertyPath: m_Name
+      value: TestRotation+Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6613703712305152170, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -948,20 +958,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
-        type: 3}
-      propertyPath: m_Name
-      value: TestRotation+Movement
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6613703712305152168, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_SerializedData.count
-      value: 5000
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613703712305152168, guid: e4b4fa0419ba59a4d8235c201039ba0d,
+        type: 3}
+      propertyPath: m_SerializedData.radius
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b4fa0419ba59a4d8235c201039ba0d, type: 3}

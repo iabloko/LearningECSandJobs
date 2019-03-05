@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -165,6 +165,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
+        type: 3}
+      propertyPath: m_Name
+      value: TestRotation+Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6613703712305152170, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -220,11 +230,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
-        type: 3}
-      propertyPath: m_Name
-      value: TestRotation+Movement
-      objectReference: {fileID: 0}
     - target: {fileID: 6613703712305152168, guid: e4b4fa0419ba59a4d8235c201039ba0d,
         type: 3}
       propertyPath: m_SerializedData.count
@@ -234,11 +239,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SerializedData.radius
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613703712305152163, guid: e4b4fa0419ba59a4d8235c201039ba0d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b4fa0419ba59a4d8235c201039ba0d, type: 3}

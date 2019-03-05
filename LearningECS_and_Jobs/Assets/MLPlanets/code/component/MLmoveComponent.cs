@@ -11,5 +11,5 @@ namespace MLplanets {
     }
 
     [UnityEngine.DisallowMultipleComponent]
-    public class MLmoveComponent : ComponentDataWrapper<MLmove> { }
+    public class MLmoveComponent : ComponentDataProxy<MLmove> { }
 }

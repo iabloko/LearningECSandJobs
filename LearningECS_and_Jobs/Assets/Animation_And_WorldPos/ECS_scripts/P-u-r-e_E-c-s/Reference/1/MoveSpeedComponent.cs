@@ -7,5 +7,5 @@ namespace Samples.Common {
     }
 
     [UnityEngine.DisallowMultipleComponent]
-    public class MoveSpeedComponent : ComponentDataWrapper<MoveSpeed> { }
+    public class MoveSpeedComponent : ComponentDataProxy<MoveSpeed> { }
 }

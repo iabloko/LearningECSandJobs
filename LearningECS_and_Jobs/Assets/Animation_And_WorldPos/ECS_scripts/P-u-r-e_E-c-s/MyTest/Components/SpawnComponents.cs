@@ -8,5 +8,5 @@ namespace Mynamespace {
         public bool spawnLocal;
         public int count;
     }
-    public class SpawnComponents : SharedComponentDataWrapper<SpawnCapsule> { }
+    public class SpawnComponents : SharedComponentDataProxy<SpawnCapsule> { }
 }

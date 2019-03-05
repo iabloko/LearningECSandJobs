@@ -12,5 +12,5 @@ namespace Samples.Common {
     }
 
     [UnityEngine.DisallowMultipleComponent]
-    public class MoveAlongCircleComponent : ComponentDataWrapper<MoveAlongCircle> { }
+    public class MoveAlongCircleComponent : ComponentDataProxy<MoveAlongCircle> { }
 }

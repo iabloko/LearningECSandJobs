@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -584,6 +584,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 170201658}
     m_Modifications:
+    - target: {fileID: 4478076623284636477, guid: ca2e522983ed31149a73f50ce4f1c56a,
+        type: 3}
+      propertyPath: m_Name
+      value: LineRenderManager
+      objectReference: {fileID: 0}
     - target: {fileID: 4478076623284636479, guid: ca2e522983ed31149a73f50ce4f1c56a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -638,11 +643,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4478076623284636477, guid: ca2e522983ed31149a73f50ce4f1c56a,
-        type: 3}
-      propertyPath: m_Name
-      value: LineRenderManager
       objectReference: {fileID: 0}
     - target: {fileID: 4478076624289452531, guid: ca2e522983ed31149a73f50ce4f1c56a,
         type: 3}

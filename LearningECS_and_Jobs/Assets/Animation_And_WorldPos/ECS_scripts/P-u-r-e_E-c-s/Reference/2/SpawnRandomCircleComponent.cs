@@ -11,5 +11,5 @@ namespace Samples.Common {
         [Range (1, 5000)] public int count;
     }
 
-    public class SpawnRandomCircleComponent : SharedComponentDataWrapper<SpawnRandomCircle> { }
+    public class SpawnRandomCircleComponent : SharedComponentDataProxy<SpawnRandomCircle> { }
 }

@@ -10,5 +10,5 @@ namespace Samples.Common
     }
 
     [UnityEngine.DisallowMultipleComponent]
-    public class RotationSpeedComponent : ComponentDataWrapper<RotationSpeed> { } 
+    public class RotationSpeedComponent : ComponentDataProxy<RotationSpeed> { } 
 }
